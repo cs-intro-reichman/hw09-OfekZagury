@@ -6,10 +6,10 @@
 public class List {
 
     // Points to the first node in this list
-    private Node first;
+    public Node first;
 
     // The number of elements in this list
-    private int size;
+    public int size;
 	
     /** Constructs an empty list. */
     public List() {
@@ -24,13 +24,13 @@ public class List {
 
     /** Returns the first element in the list */
     public CharData getFirst() {
-        return first.cp;
+        return first.cd;
     }
 
     /** GIVE Adds a CharData object with the given character to the beginning of this list. */
     public void addFirst(char chr) {
-        CharData cp = new CharData(chr);
-        Node newNode = new Node(cp);
+        CharData cd = new CharData(chr);
+        Node newNode = new Node(cd);
         newNode.next = first;
         first = newNode;
         size++;
@@ -44,7 +44,7 @@ public class List {
         String str = "(";
         Node current = first;
         while (current != null) {
-            str += current.cp.toString() + " ";
+            str += current.cd.toString() + " ";
             current = current.next;
         }
         return str.substring(0, str.length()-1) + ")";
@@ -57,7 +57,7 @@ public class List {
         Node current = first;
         int index = 0;
         while (current != null) {
-            if (current.cp.chr == chr)
+            if (current.cd.chr == chr)
                 return index;
             current = current.next;
             index++;
@@ -73,8 +73,8 @@ public class List {
         boolean found = false;
 
         while (current != null) {
-            if (current.cp.chr == chr) {
-                current.cp.count++;
+            if (current.cd.chr == chr) {
+                current.cd.count++;
                 found = true;
                 break;
             }
@@ -95,7 +95,7 @@ public class List {
         Node current = first;
         Node prev = null;
 
-        while (current != null && current.cp.chr != chr) {
+        while (current != null && current.cd.chr != chr) {
             prev = current;
             current = current.next;
         }
@@ -122,7 +122,7 @@ public class List {
         for (int i = 0; i < index; i++) {
             current = current.next;
         }
-        return current.cp;
+        return current.cd;
     }
 
     /** Returns an array of CharData objects, containing all the CharData objects in this list. */
@@ -131,7 +131,7 @@ public class List {
 	    Node current = first;
 	    int i = 0;
         while (current != null) {
-    	    arr[i++]  = current.cp;
+    	    arr[i++]  = current.cd;
     	    current = current.next;
         }
         return arr;
